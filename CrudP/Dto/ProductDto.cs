@@ -4,7 +4,10 @@
         public class ProductDto
         {
             public string Name { get; set; }
-            public decimal Price { get; set; }
-            public List<ProductDescriptionDto> Descriptions { get; set; }
-        }
+            public  string LastName { get; set; }
+            public decimal Carnet { get; set; }
+
+            public List<ProductDescriptionDto> Cargo { get; set; }
+
+    }
 }

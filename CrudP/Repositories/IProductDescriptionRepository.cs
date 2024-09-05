@@ -1,9 +1,9 @@
 ﻿using CrudP.Entities;
 public interface IProductDescriptionRepository
 {
-    void AddDescription(ProductDescription description);
+    void AddDescription(ProductDescription productDescription);
     IEnumerable<ProductDescription> GetDescriptionsByProductId(int productId);
     void DeleteDescription(int id);
-    void UpdateDescription(ProductDescription description);
+    void UpdateDescription(ProductDescription productDescription);
     void SaveChanges();
 }

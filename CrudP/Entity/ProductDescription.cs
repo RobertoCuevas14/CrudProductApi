@@ -6,7 +6,7 @@ namespace CrudP.Entities
     public class ProductDescription
     {
             public int Id { get; set; }
-            public string Description { get; set; }
+            public string Cargo { get; set; }
             public int ProductId { get; set; } // Clave foránea para el Producto
 
             [JsonIgnore]  // O puedes usar [SwaggerSchema(ReadOnly = true)] si usas Swashbuckle.AspNetCore.Annotations

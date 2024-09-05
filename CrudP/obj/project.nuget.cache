@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IMpTuga01zw=",
+  "dgSpecHash": "aFKgjA7cUfw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\roberto.cuevas\\source\\repos\\CrudP\\CrudP\\CrudP.csproj",
+  "projectFilePath": "C:\\Users\\roberto.cuevas\\Desktop\\Practica\\CrudAll\\CrudApi\\CrudP\\CrudP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\roberto.cuevas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\roberto.cuevas\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roberto.cuevas\\source\\repos\\CrudP\\CrudP\\CrudP.csproj": {}
+    "C:\\Users\\roberto.cuevas\\Desktop\\Practica\\CrudAll\\CrudApi\\CrudP\\CrudP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roberto.cuevas\\source\\repos\\CrudP\\CrudP\\CrudP.csproj": {
+    "C:\\Users\\roberto.cuevas\\Desktop\\Practica\\CrudAll\\CrudApi\\CrudP\\CrudP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roberto.cuevas\\source\\repos\\CrudP\\CrudP\\CrudP.csproj",
+        "projectUniqueName": "C:\\Users\\roberto.cuevas\\Desktop\\Practica\\CrudAll\\CrudApi\\CrudP\\CrudP.csproj",
         "projectName": "CrudP",
-        "projectPath": "C:\\Users\\roberto.cuevas\\source\\repos\\CrudP\\CrudP\\CrudP.csproj",
+        "projectPath": "C:\\Users\\roberto.cuevas\\Desktop\\Practica\\CrudAll\\CrudApi\\CrudP\\CrudP.csproj",
         "packagesPath": "C:\\Users\\roberto.cuevas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roberto.cuevas\\source\\repos\\CrudP\\CrudP\\obj\\",
+        "outputPath": "C:\\Users\\roberto.cuevas\\Desktop\\Practica\\CrudAll\\CrudApi\\CrudP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

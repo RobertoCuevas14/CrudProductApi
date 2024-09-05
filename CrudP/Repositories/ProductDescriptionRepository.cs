@@ -12,9 +12,9 @@ namespace CrudP.Repositories
             _context = context;
         }
 
-        public void AddDescription(ProductDescription description)
+        public void AddDescription(ProductDescription productDescription)
         {
-            _context.ProductDescriptions.Add(description);
+            _context.ProductDescriptions.Add(productDescription);
             SaveChanges();
         }
 
@@ -25,17 +25,17 @@ namespace CrudP.Repositories
 
         public void DeleteDescription(int id)
         {
-            var description = _context.ProductDescriptions.Find(id);
-            if (description != null)
+            var productDescription = _context.ProductDescriptions.Find(id);
+            if (productDescription != null)
             {
-                _context.ProductDescriptions.Remove(description);
+                _context.ProductDescriptions.Remove(productDescription);
                 SaveChanges();
             }
         }
 
-        public void UpdateDescription(ProductDescription description)
+        public void UpdateDescription(ProductDescription productDescription)
         {
-            _context.ProductDescriptions.Update(description);
+            _context.ProductDescriptions.Update(productDescription);
             SaveChanges();
         }
 

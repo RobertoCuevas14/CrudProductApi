@@ -15,12 +15,12 @@ namespace CrudP.Repositories
 
             public IEnumerable<Product> GetAllProducts()
             {
-                return _context.Products.Include(p => p.Descriptions).ToList();
+                return _context.Products.Include(p => p.Cargo).ToList();
             }
 
             public Product GetProductById(int id)
             {
-                return _context.Products.Include(p => p.Descriptions).FirstOrDefault(p => p.Id == id);
+                return _context.Products.Include(p => p.Cargo).FirstOrDefault(p => p.Id == id);
             }
 
             public void AddProduct(Product product)

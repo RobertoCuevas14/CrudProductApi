@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240821181535_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240902153529_RenameEntities")]
+    partial class RenameEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,12 +31,16 @@ namespace CrudP.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Name")
+                    b.Property<decimal>("Carnet")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -51,7 +55,7 @@ namespace CrudP.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Cargo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -68,7 +72,7 @@ namespace CrudP.Migrations
             modelBuilder.Entity("CrudP.Entities.ProductDescription", b =>
                 {
                     b.HasOne("CrudP.Entities.Product", "Product")
-                        .WithMany("Descriptions")
+                        .WithMany("Cargo")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -78,7 +82,7 @@ namespace CrudP.Migrations
 
             modelBuilder.Entity("CrudP.Entities.Product", b =>
                 {
-                    b.Navigation("Descriptions");
+                    b.Navigation("Cargo");
                 });
 #pragma warning restore 612, 618
         }

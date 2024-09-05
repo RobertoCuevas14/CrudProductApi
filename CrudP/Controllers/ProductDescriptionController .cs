@@ -30,7 +30,7 @@ public class ProductDescriptionController : ControllerBase
 
         var description = new ProductDescription
         {
-            Description = descriptionDto.Description,
+            Cargo = descriptionDto.Cargo,
             ProductId = descriptionDto.ProductId
         };
 
@@ -47,7 +47,7 @@ public class ProductDescriptionController : ControllerBase
             return NotFound();
         }
 
-        existingDescription.Description = descriptionDto.Description;
+        existingDescription.Cargo = descriptionDto.Cargo;
 
         _descriptionRepository.UpdateDescription(existingDescription);
         return NoContent();

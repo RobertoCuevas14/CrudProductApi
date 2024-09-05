@@ -42,10 +42,11 @@ public class ProductController : ControllerBase
         var product = new Product
         {
             Name = productDto.Name,
-            Price = productDto.Price,
-            Descriptions = productDto.Descriptions?.Select(d => new ProductDescription
+            LastName = productDto.LastName,
+            Carnet = productDto.Carnet,
+            Cargo = productDto.Cargo?.Select(d => new ProductDescription
             {
-                Description = d.Description,
+                Cargo = d.Cargo,
                 ProductId = d.ProductId
             }).ToList()
         };
@@ -54,7 +55,7 @@ public class ProductController : ControllerBase
         return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}")] 
     public IActionResult UpdateProduct(int id, [FromBody] ProductDto productDto)
     {
         var existingProduct = _productRepository.GetProductById(id);
@@ -65,38 +66,45 @@ public class ProductController : ControllerBase
 
         // Actualizar las propiedades del producto
         existingProduct.Name = productDto.Name;
-        existingProduct.Price = productDto.Price;
+        existingProduct.LastName = productDto.LastName;
+        existingProduct.Carnet = productDto.Carnet;
 
-        // Manejar las descripciones
-        foreach (var descDto in productDto.Descriptions)
+        // Manejar las descripciones (Cargo)
+        foreach (var descDto in productDto.Cargo)
         {
-            var existingDescription = existingProduct.Descriptions
-                .FirstOrDefault(d => d.Id == descDto.ProductId);
+            var existingDescription = existingProduct.Cargo
+                .FirstOrDefault(d => d.ProductId == id); // Usar ProductId para identificar la relación
 
             if (existingDescription != null)
             {
-                // Si la descripción ya existe, actualízala
-                existingDescription.Description = descDto.Description;
+                // Actualizar descripción existente si `Cargo` tiene un valor
+                if (!string.IsNullOrWhiteSpace(descDto.Cargo))
+                {
+                    existingDescription.Cargo = descDto.Cargo;
+                }
             }
             else
             {
-                // Si no existe, agrega una nueva descripción
-                existingProduct.Descriptions.Add(new ProductDescription
+                // Agregar nueva descripción si no existe y `Cargo` no es nulo o vacío
+                if (!string.IsNullOrWhiteSpace(descDto.Cargo))
                 {
-                    Description = descDto.Description,
-                    ProductId = id
-                });
+                    existingProduct.Cargo.Add(new ProductDescription
+                    {
+                        Cargo = descDto.Cargo,
+                        ProductId = id // Relacionar con el producto
+                    });
+                }
             }
         }
 
         // Opcionalmente, eliminar descripciones que ya no están en el DTO
-        var descriptionsToRemove = existingProduct.Descriptions
-            .Where(d => !productDto.Descriptions.Any(dto => dto.ProductId == d.Id))
+        var descriptionsToRemove = existingProduct.Cargo
+            .Where(d => !productDto.Cargo.Any(dto => dto.Cargo == d.Cargo)) // Comparar por `Cargo` si no hay un identificador único
             .ToList();
 
         foreach (var descToRemove in descriptionsToRemove)
         {
-            existingProduct.Descriptions.Remove(descToRemove);
+            existingProduct.Cargo.Remove(descToRemove);
         }
 
         // Actualizar el producto en la base de datos
@@ -104,6 +112,9 @@ public class ProductController : ControllerBase
 
         return NoContent();
     }
+
+
+
 
 
     [HttpDelete("{id}")]

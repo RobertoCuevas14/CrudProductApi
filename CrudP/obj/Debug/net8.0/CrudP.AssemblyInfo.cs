@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrudP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f229baa52646bf3f2986278a30e9c250553b6144")]
 [assembly: System.Reflection.AssemblyProductAttribute("CrudP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CrudP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
